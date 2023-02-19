@@ -28,6 +28,7 @@ img{
 	top:40px;
 	right:40px;
 	transition:all .5s;
+	z-index: 1;
 }
 .abrir:hover{
 	background-color:#C80F2E;
@@ -91,11 +92,20 @@ img{
 
 /* SECCIONES */
 section{
-	width:80%;
-	height:auto;
-	min-height: 100vh;
-	padding-left: 50px;
+	width:100%;
+	padding:100px 0;
+	position: relative;
+	z-index: 0;
+}
+.info::after{
+	content:"";
+	background-color: white;
+	opacity: .5;
 	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
 }
 h1{
 	font-size:3.5em;
@@ -114,63 +124,29 @@ p{
 	line-height: 1.5em;
 	margin-top:30px;
 }
-#uno::before{
-	content:"";
-	height:100%;
-	width: 100vw;
-	position:absolute;
-	left:0;
-	top:0;
+#uno{
 	background: url("../img/fondo-01.jpg") no-repeat center top / cover;
-	opacity:.2;
-	z-index:-1;
 }
 #uno img{
-	margin-top: 160px;
+	margin-top: 20px;
 	width:20vh;
 }
+
 #dos{
-	top: 100vh;
-}
-#dos::before{
-	content:"";
-	height:100%;
-	width: 100vw;
-	position:absolute;
-	left:0;
-	top:0;
 	background: url("../img/fondo-02.jpg") no-repeat center top / cover;
-	opacity:.2;
-	z-index:-1;
-}
-#dos div:first-child{
-	margin-top: 100px;
 }
 #dos img{
-	width:100%;
+	width:80%;
 	margin:30px 0 0;
 	padding:10px;
 	background-color:white;
 	box-shadow:1px 1px 5px black;
 }
 #tres{
-	top: 200vh;
-	padding-bottom: 100px;
+	padding-bottom: 50px;
 }
-#tres::before{
-	content:"";
-	position:absolute;
-	height:100%;
-	width: 100vw;
-	top:0;
-	left:0;
+#tres{
 	background: url("../img/fondo-03.jpg") no-repeat center top / cover;
-	opacity:.2;
-	z-index:-1;
-}
-
-#tres div:first-child{
-	margin-top: 100px;
 }
 #tres div:last-child img{
 	border:3px dashed #C80F2E;
@@ -193,6 +169,7 @@ p{
 }
 .info{
 	width:90%;
+	margin: 0 auto;
 }
 .info a{
 	color:#1D4289;
@@ -202,8 +179,17 @@ p{
 .info a:hover{
 	color:#C80F2E;
 }
-
-
+.info::after{
+	content:"";
+	background-color: white;
+	opacity: .5;
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
 
 /* -- EFECTOS DE LOS ENLACES -- */
 .brackets:hover{
