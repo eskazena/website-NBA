@@ -12,115 +12,170 @@ body{
 img{
 	display:block;
 }
-header.menu1{
-	width:100%;
-	height:100px;
+
+/* MENÚ HAMBURGUESA */
+.abrir{
+	display:block;
+	appearance:none;
+	-webkit-appearance:none;
+	background-color:transparent;
+	border:1px solid #C80F2E;
+	border-radius:5px;
+	width:30px;
+	padding:5px 5px 0;
+	cursor:pointer;
 	position:fixed;
-	left:0;
-	top:calc(50vh - 50px);
-	z-index:2;
-	padding-left:100px;
-	background-color: rgba(200, 15, 46, .8);
-	display:flex;
-	justify-content: flex-start;
-	align-items: center;
+	top:40px;
+	right:40px;
+	transition:all .5s;
 }
-header.menu1 img{
-	width:50px;
+.abrir:hover{
+	background-color:#C80F2E;
 }
-nav{
-	display:flex;
-	justify-content: center;
-	align-items: center;
+.abrir span{
+	display:block;
+	height:2px;
+	background-color:#C80F2E;
+	margin-bottom:5px;
 }
-nav ul{
-	list-style:none;
-	display:flex;
+.abrir:hover span{
+	background-color: white;
 }
-nav a{
-	text-decoration:none;
-	color: rgba(29, 66, 137, 0.7);
-	transition:all 0.3s;
-    font-size: 1.2em;
-    font-weight:700;
-    margin: 0px 10px;
-    padding: 10px 20px;
-    position: relative;
-}
-section{
+.hamb{
+	width:100%;
 	height:100vh;
-	width:100%;
-	padding-left:100px;
-	display:grid;
-	grid-template:repeat(2, 1fr) / 100%;
-	align-items:center;
-	row-gap:100px;
 	position:fixed;
-	background-color:white;
+	top:0;
+	left:0;
+	background-color:#1D4289;
+	flex-direction:column;
+	opacity:.8;
+	display:none;
+	z-index: 1;
+}
+.hamb ul{
+	display:block;
+	text-align:center;
+}
+.hamb li:not(:first-child){
+	margin-top:40px;
+}
+.hamb a{
+	color: rgba(255, 255, 255, 0.7);
+    font-size: 3em;
+    padding: 20px 40px;
+}
+.cerrar{
+	display:block;
+	appearance:none;
+	-webkit-appearance:none;
+	border:none;
+	background-color:transparent;
+	color:rgba(255, 255, 255, 0.7);
+	font-size:2em;
+	position:absolute;
+	top:20px;
+	right:20px;
+	cursor:pointer;
+	transition: all .5s;
+}
+.cerrar:hover{
+	color:white;
+}
+.desplegado{
+	display:flex;
+}
+.blur{
+	filter:blur(4px);
+}
+
+/* SECCIONES */
+section{
+	width:80%;
+	height:auto;
+	min-height: 100vh;
+	padding-left: 50px;
+	position: absolute;
 }
 h1{
 	font-size:3.5em;
 	font-weight:800;
 	color:#C80F2E;
+	margin-top: 50px;
 }
 h2{
 	font-size:2em;
 	font-weight:700;
 	color:#1D4289;
+	margin-top: 50px;
 }
 p{
 	color:#444;
 	line-height: 1.5em;
-	margin-top:10px;
+	margin-top:30px;
 }
-
 #uno::before{
 	content:"";
-	height:100vh;
+	height:100%;
 	width: 100vw;
 	position:absolute;
-	background: url("../img/fondo-01.jpg") no-repeat top center / cover;
+	left:0;
+	top:0;
+	background: url("../img/fondo-01.jpg") no-repeat center top / cover;
 	opacity:.2;
 	z-index:-1;
 }
 #uno img{
-	width:30vh;
+	margin-top: 160px;
+	width:20vh;
+}
+#dos{
+	top: 100vh;
 }
 #dos::before{
 	content:"";
-	height:100vh;
+	height:100%;
 	width: 100vw;
 	position:absolute;
-	background: url("../img/fondo-02.jpg") no-repeat center center / cover;
+	left:0;
+	top:0;
+	background: url("../img/fondo-02.jpg") no-repeat center top / cover;
 	opacity:.2;
 	z-index:-1;
 }
+#dos div:first-child{
+	margin-top: 100px;
+}
 #dos img{
-	width:40%;
-	margin:20px 0;
+	width:100%;
+	margin:30px 0 0;
 	padding:10px;
 	background-color:white;
 	box-shadow:1px 1px 5px black;
 }
+#tres{
+	top: 200vh;
+	padding-bottom: 100px;
+}
 #tres::before{
 	content:"";
-	height:100vh;
-	width: 100vw;
 	position:absolute;
-	background: url("../img/fondo-03.jpg") no-repeat center center / cover;
+	height:100%;
+	width: 100vw;
+	top:0;
+	left:0;
+	background: url("../img/fondo-03.jpg") no-repeat center top / cover;
 	opacity:.2;
 	z-index:-1;
 }
-#tres div:last-child{
-	display:grid;
-	grid-template: auto 20px / repeat(3, 200px);
-	height:40vh;
-	column-gap:40px;
-	align-content:center;
+
+#tres div:first-child{
+	margin-top: 100px;
 }
 #tres div:last-child img{
 	border:3px dashed #C80F2E;
 	padding:10px;
+	margin-top: 40px;
 	max-width:120%;
 	max-height:120%;
 	object-fit:cover;
@@ -137,8 +192,7 @@ p{
 	filter:grayscale(0);
 }
 .info{
-	width:80%;
-	max-width: 1000px;
+	width:90%;
 }
 .info a{
 	color:#1D4289;
@@ -149,9 +203,7 @@ p{
 	color:#C80F2E;
 }
 
-#uno, #dos:target, #tres:target{
-	z-index:1;
-}
+
 
 /* -- EFECTOS DE LOS ENLACES -- */
 .brackets:hover{
@@ -213,84 +265,45 @@ p{
 }*/
 
 
-/* MENÚ HAMBURGUESA */
-header.menu2{
+/* MENÚ CABECERA ANCHA */
+header.menu1{
+	width:100%;
+	height:100px;
 	position:fixed;
-	z-index:1;
-	width:100%;
-}
-.abrir{
-	display:block;
-	appearance:none;
-	-webkit-appearance:none;
-	background-color:transparent;
-	border:1px solid #C80F2E;
-	border-radius:5px;
-	width:30px;
-	padding:5px 5px 0;
-	cursor:pointer;
-	position:absolute;
-	top:100px;
-	left:100px;
-	transition:all .5s;
-}
-.abrir:hover{
-	background-color:#C80F2E;
-}
-.abrir span{
-	display:block;
-	height:2px;
-	background-color:#C80F2E;
-	margin-bottom:5px;
-}
-.abrir:hover span{
-	background-color: white;
-}
-.hamb{
-	width:100%;
-	height:100vh;
-	position:absolute;
-	background-color:#1D4289;
-	flex-direction:column;
-	opacity:.8;
+	left:0;
+	top:calc(50vh - 50px);
+	z-index:2;
+	padding-left:100px;
+	background-color: rgba(200, 15, 46, .8);
 	display:none;
+	justify-content: flex-start;
+	align-items: center;
 }
-.hamb ul{
-	display:block;
-	text-align:center;
+header.menu1 img{
+	width:50px;
 }
-.hamb li:not(:first-child){
-	margin-top:40px;
+nav{
+	display:flex;
+	justify-content: center;
+	align-items: center;
 }
-.hamb a{
-	color: rgba(255, 255, 255, 0.7);
-    font-size: 3em;
-    padding: 20px 40px;
-}
-.cerrar{
-	display:block;
-	appearance:none;
-	-webkit-appearance:none;
-	border:none;
-	background-color:transparent;
-	color:rgba(255, 255, 255, 0.7);
-	font-size:2em;
-	position:absolute;
-	top:20px;
-	right:20px;
-	cursor:pointer;
-	transition: all .5s;
-}
-.cerrar:hover{
-	color:white;
-}
-.desplegado{
+nav ul{
+	list-style:none;
 	display:flex;
 }
-.blur{
-	filter:blur(4px);
+nav a{
+	text-decoration:none;
+	color: rgba(29, 66, 137, 0.7);
+	transition:all 0.3s;
+    font-size: 1.2em;
+    font-weight:700;
+    margin: 0px 10px;
+    padding: 10px 20px;
+    position: relative;
 }
 
+/* CONDICIONALES */
+/*
 @media screen and (max-width:900px){
 	#tres div:last-child{
 		display:grid;
@@ -340,11 +353,50 @@ header.menu2{
 		left:calc(100% - 142px);
 	}
 }
+*/
 
 
 
+/*
+
+#tres::before{
+	content:url("../img/fondo-03.jpg");
+	display: block;
+	height:100vh;
+	width: 100vw;
+	position:absolute;
+	left:0;
+	top:0;
+	-background: url("../img/fondo-03.jpg") no-repeat center center / cover;
+	opacity:.2;
+	z-index:-1;
+}
+
+#tres div:last-child{
+	display:grid;
+	grid-template: auto 20px / repeat(3, 200px);
+	height:40vh;
+	column-gap:40px;
+	align-content:center;
+}
 
 
+
+#uno, #dos:target, #tres:target{
+	z-index:1;
+}
+
+section{
+	height:100vh;
+	width:100%;
+	padding-left:100px;
+	display:grid;
+	grid-template:repeat(2, 1fr) / 100%;
+	align-items:center;
+	row-gap:100px;
+	position:fixed;
+	background-color:white;
+}*/
 
 
 

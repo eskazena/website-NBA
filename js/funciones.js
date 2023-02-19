@@ -1,6 +1,6 @@
-const botones = document.querySelectorAll(".abrir,.cerrar");
+const botones = document.querySelectorAll(".abrir,.cerrar,.brackets");
 const navegacion = document.querySelector(".hamb");
-const bird = document.querySelector("#bird");
+const secciones = document.querySelectorAll("section");
 
 /*
 for(var i = 0; i < botones.length; i++){
@@ -9,9 +9,8 @@ for(var i = 0; i < botones.length; i++){
 });
 }*/
 
-botones.forEach(boton => {
+botones.forEach((boton, indice) => {
 	boton.addEventListener("click", function(){
 		navegacion.classList.toggle("desplegado");
-		bird.classList.toggle("blur");
 	});
 });
